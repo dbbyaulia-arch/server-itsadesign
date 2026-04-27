@@ -15,11 +15,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Rute Utama
 app.get('/', (req, res) => {
     res.status(200).send('Server itsadesign aktif dengan sistem Poin & Moota!');
 });
 
-// 2. Endpoint Webhook Moota
+// TAMBAHKAN KODE INI UNTUK LOLOS "CHECK URL" MOOTA
+app.get('/moota-webhook', (req, res) => {
+    res.status(200).send('Webhook Endpoint Ready');
+});
+
+// 2. Endpoint Webhook Moota (POST)
 app.post('/moota-webhook', async (req, res) => {
     try {
         // Verifikasi dari Moota
